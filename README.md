@@ -17,14 +17,14 @@ git clone https://github.com/stilleshan/ServerStatus.git
 ```
 
 ### 启动容器
-示例 **8888** 端口为 Web 访问端口, **35601** 为客户端通信端口,根据需求自行修改映射端口.注意防火墙需放行此端口.
+示例 **8886** 端口为 Web 访问端口, **35601** 为客户端通信端口,根据需求自行修改映射端口.注意防火墙需放行此端口.
 ```shell
-docker run -d --name=serverstatus --restart=always -p 8888:80 -p 35601:35601 -v ~/ServerStatus/config.json:/ServerStatus/server/config.json stilleshan/serverstatus
+docker run -d --name=serverstatus --restart=always -p 8886:80 -p 35601:35601 -v ~/ServerStatus/config.json:/ServerStatus/server/config.json stilleshan/serverstatus
 ```
 
 ### 访问地址
 ```
-http://服务器IP:8888
+http://服务器IP:8886
 ```
 > 使用域名和 HTTPS 协议可配置 Nginx 反向代理
 
@@ -38,7 +38,7 @@ docker restart serverstatus
 ### 自定义前端页面
 上述默认启动命令没有挂载 web 目录,如需自定义修改前端页面,需 **git clone** 本仓库到服务器 **/root** 目录内,执行以下命令挂载 web 目录.
 ```shell
-docker run -d --name=serverstatus --restart=always -p 8888:80 -p 35601:35601 -v ~/ServerStatus/config.json:/ServerStatus/server/config.json -v ~/ServerStatus/web:/usr/share/nginx/html stilleshan/serverstatus
+docker run -d --name=serverstatus --restart=always -p 8886:80 -p 35601:35601 -v ~/ServerStatus/config.json:/ServerStatus/server/config.json -v ~/ServerStatus/web:/usr/share/nginx/html stilleshan/serverstatus
 ```
 
 ### 客户端
